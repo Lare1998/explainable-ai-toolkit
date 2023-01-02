@@ -1,0 +1,98 @@
+
+import shap
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from typing import Dict, Any
+
+class SHAPExplainer:
+    """Provides SHAP-based explanations for machine learning models."""
+    def __init__(self, model, data: pd.DataFrame, feature_names: list):
+        self.model = model
+        self.data = data
+        self.feature_names = feature_names
+        self.explainer = None
+
+    def _train_model_if_needed(self):
+        if not hasattr(self.model, 'predict_proba'):
+            # Assume it's a scikit-learn compatible model that needs training
+            X = self.data[self.feature_names]
+            y = self.data["target"] # Assuming 'target' column exists
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            self.model.fit(X_train, y_train)
+
+    def explain_instance(self, instance: pd.Series) -> Dict[str, Any]:
+        """Generates SHAP values for a single instance."""
+        self._train_model_if_needed()
+        if self.explainer is None:
+            # Use KernelExplainer for model-agnostic explanations
+            self.explainer = shap.KernelExplainer(self.model.predict_proba, self.data[self.feature_names])
+        
+        shap_values = self.explainer.shap_values(instance[self.feature_names])
+        
+        # For binary classification, shap_values will be a list of two arrays (for class 0 and class 1)
+        # We'll typically focus on the positive class (index 1)
+        if isinstance(shap_values, list):
+            shap_values_for_positive_class = shap_values[1]
+        else:
+            shap_values_for_positive_class = shap_values
+
+        explanation = {
+            "instance": instance.to_dict(),
+            "shap_values": dict(zip(self.feature_names, shap_values_for_positive_class)),
+            "expected_value": self.explainer.expected_value[1] if isinstance(self.explainer.expected_value, np.ndarray) else self.explainer.expected_value
+        }
+        return explanation
+
+    def explain_dataset(self) -> Dict[str, Any]:
+        """Generates SHAP values for the entire dataset."""
+        self._train_model_if_needed()
+        if self.explainer is None:
+            self.explainer = shap.KernelExplainer(self.model.predict_proba, self.data[self.feature_names])
+        
+        shap_values = self.explainer.shap_values(self.data[self.feature_names])
+
+        if isinstance(shap_values, list):
+            shap_values_for_positive_class = shap_values[1]
+        else:
+            shap_values_for_positive_class = shap_values
+
+        explanation = {
+            "shap_values_summary": pd.DataFrame(shap_values_for_positive_class, columns=self.feature_names).mean().to_dict(),
+            "expected_value": self.explainer.expected_value[1] if isinstance(self.explainer.expected_value, np.ndarray) else self.explainer.expected_value
+        }
+        return explanation
+
+if __name__ == "__main__":
+    # Example Usage
+    # 1. Generate dummy data
+    np.random.seed(0)
+    data = pd.DataFrame({
+        'feature_A': np.random.rand(100),
+        'feature_B': np.random.rand(100) * 10,
+        'feature_C': np.random.randint(0, 5, 100),
+        'target': np.random.randint(0, 2, 100)
+    })
+    feature_names = ['feature_A', 'feature_B', 'feature_C']
+
+    # 2. Train a dummy model
+    model = RandomForestClassifier(random_state=42)
+    X = data[feature_names]
+    y = data['target']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model.fit(X_train, y_train)
+
+    # 3. Initialize SHAP Explainer
+    shap_explainer = SHAPExplainer(model, X_train, feature_names)
+
+    # 4. Explain a single instance
+    sample_instance = X_test.iloc[0]
+    instance_explanation = shap_explainer.explain_instance(sample_instance)
+    print("\nSHAP Explanation for a single instance:")
+    print(instance_explanation)
+
+    # 5. Explain the entire dataset (summary)
+    dataset_explanation = shap_explainer.explain_dataset()
+    print("\nSHAP Explanation for the dataset (mean SHAP values):")
+    print(dataset_explanation)
