@@ -3629,3 +3629,5 @@ Commit 144 on 2023-03-24 00:00:00 - ci: Integrate with SonarQube
 Commit 145 on 2023-03-27 00:00:00 - ci: Add linting to pre-commit hooks
 Commit 146 on 2023-03-27 00:00:00 - style: Standardize error messages
 Commit 147 on 2023-03-27 00:00:00 - style: Use f-strings for formatting
+Commit 148 on 2023-03-28 00:00:00 - style: Remove redundant comments
+Commit 149 on 2023-03-28 00:00:00 - style: Remove redundant comments
