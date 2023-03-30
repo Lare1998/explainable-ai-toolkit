@@ -3633,3 +3633,5 @@ Commit 148 on 2023-03-28 00:00:00 - style: Remove redundant comments
 Commit 149 on 2023-03-28 00:00:00 - style: Remove redundant comments
 Commit 150 on 2023-03-29 00:00:00 - style: Use f-strings for formatting
 Commit 151 on 2023-03-29 00:00:00 - perf: Optimize image loading
+Commit 152 on 2023-03-30 00:00:00 - perf: Reduce bundle size
+Commit 153 on 2023-03-30 00:00:00 - chore: Configure environment variables
