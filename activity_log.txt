@@ -102,3 +102,5 @@ Activity on 2023-03-29 00:00:00 - chore: Update CI/CD runners
 Activity on 2023-03-31 00:00:00 - feat: Integrate with third-party API
 Activity on 2023-03-31 00:00:00 - feat: Introduce dark mode theme
 Activity on 2023-03-31 00:00:00 - chore: Automate release process
+Activity on 2023-04-04 00:00:00 - docs: Update README with installation instructions
+Activity on 2023-04-04 00:00:00 - test: Add unit tests for core logic
