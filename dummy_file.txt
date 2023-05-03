@@ -3241,3 +3241,5 @@ Commit 20 on 2023-05-01 12:37:51 - docs: Update README with installation instruc
 Commit 21 on 2023-05-01 12:37:51 - fix: Handle null pointer exceptions
 Commit 22 on 2023-05-01 12:37:51 - refactor: Use design patterns
 Commit 23 on 2023-05-01 12:37:51 - docs: Create architectural overview
+Commit 24 on 2023-05-02 12:37:51 - docs: Create quick start guide
+Commit 25 on 2023-05-02 12:37:51 - style: Standardize error messages
