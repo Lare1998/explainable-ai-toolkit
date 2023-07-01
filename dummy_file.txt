@@ -3318,3 +3318,6 @@ Commit 97 on 2023-06-27 12:37:51 - ci: Add code coverage reporting
 Commit 98 on 2023-06-29 12:37:51 - test: Write property-based tests
 Commit 99 on 2023-06-29 12:37:51 - chore: Automate release process
 Commit 100 on 2023-06-29 12:37:51 - chore: Migrate to new hosting provider
+Commit 101 on 2023-06-30 12:37:51 - ci: Add vulnerability scanning
+Commit 102 on 2023-06-30 12:37:51 - test: Add end-to-end tests
+Commit 103 on 2023-06-30 12:37:51 - chore: Upgrade Python version
