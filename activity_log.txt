@@ -574,3 +574,4 @@ Activity on 2024-04-26 00:00:00 - ci: Add code coverage reporting
 Activity on 2024-04-29 00:00:00 - build: Set up cross-compilation
 Activity on 2024-04-30 00:00:00 - ci: Add code coverage reporting
 Activity on 2024-04-30 00:00:00 - style: Adjust indentation and spacing
+Activity on 2024-05-01 00:00:00 - docs: Add contribution guidelines
