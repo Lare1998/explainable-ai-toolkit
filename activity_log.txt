@@ -1040,3 +1040,5 @@ Activity on 2025-05-08 00:00:00 - perf: Optimize network communication
 Activity on 2025-05-09 00:00:00 - chore: Migrate to new hosting provider
 Activity on 2025-05-12 00:00:00 - chore: Bump version number
 Activity on 2025-05-13 00:00:00 - refactor: Use design patterns
+Activity on 2025-05-14 00:00:00 - refactor: Simplify conditional statements
+Activity on 2025-05-14 00:00:00 - chore: Bump version number
