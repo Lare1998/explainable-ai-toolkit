@@ -1226,3 +1226,6 @@ Activity on 2025-10-02 00:00:00 - style: Consistent import order
 Activity on 2025-10-03 00:00:00 - style: Use f-strings for formatting
 Activity on 2025-10-03 00:00:00 - feat: Introduce dark mode theme
 Activity on 2025-10-03 00:00:00 - ci: Add performance benchmarks
+Activity on 2025-10-06 00:00:00 - ci: Integrate with SonarQube
+Activity on 2025-10-06 00:00:00 - fix: Handle null pointer exceptions
+Activity on 2025-10-06 00:00:00 - style: Adjust indentation and spacing
