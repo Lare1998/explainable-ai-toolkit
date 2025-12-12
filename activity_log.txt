@@ -1320,3 +1320,4 @@ Activity on 2025-12-08 00:00:00 - style: Use f-strings for formatting
 Activity on 2025-12-09 00:00:00 - chore: Migrate to new hosting provider
 Activity on 2025-12-09 00:00:00 - chore: Update dependencies in requirements.txt
 Activity on 2025-12-10 00:00:00 - chore: Configure environment variables
+Activity on 2025-12-12 00:00:00 - ci: Add code coverage reporting
