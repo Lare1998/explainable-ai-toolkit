@@ -108,3 +108,6 @@
 2026 Activity on 2026-03-24 00:00:00 - test: Add unit tests for core logic
 2026 Activity on 2026-03-24 00:00:00 - perf: Reduce bundle size
 2026 Activity on 2026-03-25 00:00:00 - refactor: Decouple modules for better maintainability
+2026 Activity on 2026-03-27 00:00:00 - fix: Correct off-by-one errors
+2026 Activity on 2026-03-27 00:00:00 - docs: Create quick start guide
+2026 Activity on 2026-03-27 00:00:00 - docs: Create architectural overview
